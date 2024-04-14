@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Выполненные задачи</h1>
+    {% if articles|length > 0 %}
+          {% for el in articles %}
+                  <div class="alert alert-info">
+                      <h2>{{ el.title }}</h2>
+                       <p>{{ el.intro }}</p>
+                      <a href="/completed_posts/{{ el.id }}/del" class="btn btn-danger">X</a>
+                   </div>
+          {% endfor %}
+    {% else %}
+             <p>Not tasks(</p>
+    {% endif %}
+<a href="/posts" class="btn btn-success">Назад</a>
+</body>
+</html>

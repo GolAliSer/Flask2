@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Задачи все{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>все задачи</h1>
+    {% if articles|length > 0 %}
+          {% for el in articles %}
+                  <div class="alert alert-info">
+                      <h2>{{ el.title }}</h2>
+                       <p>{{ el.intro }}</p>
+                         <p><b>{{ el.date.date() }}</b></p>
+                         <p>{{ el.category }}</p>
+                         <a href="/posts/{{ el.id }}" class="btn btn-warning">LДетали</a>
+
+                   </div>
+          {% endfor %}
+    {% else %}
+             <p>Not tasks(</p>
+    {% endif %}
+    <a href="/create" class="btn btn-warning">добавить задчку</a>
+    <a href="/completed_posts" class="btn btn-warning">Выполненное</a>
+</div>
+{% endblock %}
